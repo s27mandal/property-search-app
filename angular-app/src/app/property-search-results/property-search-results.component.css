@@ -1,0 +1,179 @@
+.page-background {
+  background-image: url("/assets/property.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* background: linear-gradient(-45deg, #ff1493, #1e90ff, #32cd32, #ff4500); */
+  /* background-size: 400% 400%; */
+  /* animation: gradientAnimation 10s ease infinite; */
+  min-height: 100vh;
+  position: relative;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.heading {
+  background: linear-gradient(to right, #ff8a00, #e52e71);
+  padding: 20px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  padding-bottom: 100px;
+}
+
+.grid-item {
+  width: 100%;
+}
+
+/* .card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  backdrop-filter: blur(5px);
+} */
+
+.card {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px); /* Add blur for glass effect */
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.card-header {
+  background: linear-gradient(to right, #df4a4a, #3b3bc4);
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  padding: 5px;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* .card-header {
+  background-image: linear-gradient(to right, #7d86ea, #fad0c4);
+  color: white;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 5px;
+} */
+
+.button-wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.back-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Bebas Neue", sans-serif;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #5bcedf, #f96161, #fc8f46, #36e494);
+  background-size: 400%;
+  border-radius: 30px;
+  z-index: 1;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.back-button:hover {
+  animation: animate 8s linear infinite;
+}
+
+.back-button:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #5bcedf, #f96161, #fc8f46, #36e494);
+  background-size: 400px;
+  border-radius: 40px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.back-button:hover:before {
+  filter: blur(10px);
+  opacity: 1;
+}
