@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    -45deg,
+    rgba(255, 154, 158, 0.8),
+    rgba(250, 208, 196, 0.8)
+  );
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.loan-form-container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.loan-form-heading {
+  text-align: center;
+  margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+form {
+  display: grid;
+  grid-gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+}
+
+input[type="file"] {
+  margin-top: 5px;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.submit-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,135 @@
+.background-container {
+  background-image: url("/assets/property.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: scroll;
+}
+
+.property-details-page {
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(to bottom, #007bff, #0056b3);
+  color: #fff;
+  padding: 20px;
+}
+
+.property-details-heading {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.property-details-container {
+  font-family: "Poppins", sans-serif;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.heading-container {
+  font-weight: bold;
+}
+
+.property-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.property-image {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 150px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.property-details {
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.property-detail {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 10px;
+}
+
+.property-features,
+.nearby-facilities {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+}
+
+.feature-item,
+.facility-item {
+  font-family: "Poppins", sans-serif;
+  display: inline-block;
+  background-color: #fff;
+  color: #000000;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.check-eligibility-button {
+  font-family: "Poppins", sans-serif;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 45%;
+}
+
+.check-eligibility-button:hover {
+  background-color: #0056b3;
+}
+
+.footer {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin-top: 20px;
+  background: linear-gradient(to top, #007bff, #0056b3);
+  color: #fff;
+  padding: 20px;
+}

@@ -1,0 +1,95 @@
+<div class="background-container">
+  <div class="property-details-page">
+    <div class="header">
+      <h1 class="property-details-heading">Property Details</h1>
+    </div>
+
+    <div class="property-details-container" *ngIf="propertyDetails">
+      <div class="content">
+        <!-- Display property images -->
+        <div class="property-images">
+          <div
+            class="property-image"
+            *ngFor="let image of propertyDetails.images.split(',')"
+          >
+            Property Image
+          </div>
+        </div>
+
+        <!-- Display other property details -->
+        <div class="property-details">
+          <div class="property-detail">
+            <h3 class="heading-container">Description:</h3>
+            <p>{{ propertyDetails.description }}</p>
+          </div>
+          <div class="property-detail">
+            <h3 class="heading-container">Price:</h3>
+            <p>Price: {{ propertyDetails.price }}</p>
+          </div>
+          <div class="property-detail">
+            <h3 class="heading-container">Address:</h3>
+            <p>{{ propertyDetails.address }}</p>
+          </div>
+          <div class="property-detail">
+            <h3 class="heading-container">Property Type:</h3>
+            <p>{{ propertyDetails.propertyType }}</p>
+          </div>
+          <div class="property-detail">
+            <h3 class="heading-container">Property Size:</h3>
+            <p>{{ propertyDetails.propertySize }}</p>
+          </div>
+          <div class="property-detail">
+            <h3 class="heading-container">Contact Info:</h3>
+            <p>{{ propertyDetails.contactInfo }}</p>
+          </div>
+          <div class="floor-plan-section">
+            <div class="property-detail">
+              <h3 class="heading-container">Floor Plan:</h3>
+            </div>
+          </div>
+          <div class="property-detail">
+            <h3 class="heading-container">Build Year:</h3>
+            <p>{{ propertyDetails.buildYear }}</p>
+          </div>
+        </div>
+
+        <div class="property-features">
+          <h2>Property Features</h2>
+          <div class="feature-grid">
+            <div
+              *ngFor="
+                let feature of propertyDetails.propertyFeatures.split(',')
+              "
+            >
+              <div class="feature-item">{{ feature }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nearby-facilities">
+          <h2>Nearby Facilities</h2>
+          <div class="facility-grid">
+            <div
+              *ngFor="
+                let facility of propertyDetails.nearbyFacilities.split(',')
+              "
+            >
+              <div class="facility-item">{{ facility }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="check-eligibility-button"
+      (click)="navigateToLoanEligibilityForm()"
+    >
+      Apply For Loan
+    </button>
+
+    <div class="footer">
+      <p>&copy; 2023 Shubham Mandal. All rights reserved.</p>
+    </div>
+  </div>
+</div>

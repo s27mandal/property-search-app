@@ -1,0 +1,44 @@
+/* Custom styles for the header */
+.nav-heading {
+  background: linear-gradient(45deg, #f06, #09f);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+}
+
+.nav-heading .navbar-brand img {
+  max-width: 40px; /* Adjust the logo width as needed */
+  margin-left: 15px;
+}
+
+.nav-heading .navbar-toggler-icon {
+  background-color: #fff;
+}
+
+/* Style the buttons */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+/* Adjust the active link style */
+.navbar-nav .nav-link.active {
+  color: #007bff;
+}
+
+.btn {
+  font-family: "Poppins", sans-serif;
+}

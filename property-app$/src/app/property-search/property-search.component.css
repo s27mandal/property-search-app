@@ -1,0 +1,225 @@
+/* property-search.component.css */
+
+/* Container style */
+.container {
+  background-image: url("/assets/property.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -10px;
+  font-family: "Poppins", sans-serif;
+  /* background-color: rgba(0, 0, 0, 0.6); */
+}
+
+/* Header style */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4695ea;
+  color: #fff;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.right-corner .logout-button {
+  font-family: "Poppins", sans-serif;
+  background-color: #49b1ee;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.right-corner .logout-button:hover {
+  background-color: #cc0000;
+  transform: scale(1.05);
+}
+
+.left-corner {
+  display: flex;
+  align-items: center;
+}
+
+.right-corner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.right-corner p {
+  margin: 5px 0;
+}
+
+/* Property Search Form style */
+.property-search-form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.property-search-form div {
+  margin-bottom: 15px;
+}
+
+.property-search-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.property-search-form input[type="text"],
+.property-search-form input[type="range"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.property-search-form input[type="range"] {
+  appearance: none;
+  height: 6px;
+  background-color: #ddd;
+  outline: none;
+}
+
+.property-search-form input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: #007bff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.property-search-form input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background-color: #007bff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.property-search-form span {
+  font-size: 12px;
+  color: #fff;
+}
+
+.property-search-form button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.property-search-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for the dropdown */
+.property-search-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif; /* Apply the existing font */
+}
+
+/* Style for the dropdown options */
+.property-search-form select option {
+  padding: 10px;
+  background-color: #fff;
+  color: #000;
+  font-family: "Poppins", sans-serif; /* Apply the existing font */
+}
+
+/* Style for the active option */
+.property-search-form select option:checked {
+  background-color: #007bff;
+  color: #fff;
+  font-family: "Poppins", sans-serif; /* Apply the existing font */
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px; /* Add margin to separate the form and heading from the footer */
+}
+
+.typing-demo {
+  width: 15ch;
+  animation: typing 3.5s infinite, blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: "Poppins", sans-serif;
+  font-size: 2em;
+  color: aliceblue;
+  animation-fill-mode: forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Existing styles... */
+
+.property-search-form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.property-search-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+/* Styles for Latitude and Longitude fields */
+.property-search-form div.latitude-longitude-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.property-search-form div.latitude-longitude-container label {
+  flex: 1;
+}
+
+.property-search-form div.latitude-longitude-container input[type="number"] {
+  flex: 2;
+  margin-left: 10px;
+}

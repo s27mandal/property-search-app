@@ -1,0 +1,73 @@
+<div class="header">
+  <h1 class="loan-form-heading">Loan Eligibility Check</h1>
+</div>
+<div class="loan-form-container">
+  <form>
+    <!-- Full Name -->
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required />
+
+    <!-- Email Address -->
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required />
+
+    <!-- Phone No -->
+    <label for="phone">Phone No:</label>
+    <input type="tel" id="phone" name="phone" required />
+
+    <!-- PAN No -->
+    <label for="pan">PAN No:</label>
+    <input type="text" id="pan" name="pan" required />
+
+    <!-- Employment Status -->
+    <label for="employment">Employment Status:</label>
+    <select id="employment" name="employment" required>
+      <option value="private-sector">Private Sector</option>
+      <option value="govt-sector">Government Sector</option>
+      <option value="self-employed">Self-employed</option>
+      <option value="unemployed">Unemployed</option>
+    </select>
+
+    <!-- Monthly Income -->
+    <label for="income">Monthly Income:</label>
+    <input type="number" id="income" name="income" required />
+
+    <!-- Loan Amount Needed -->
+    <label for="loanAmount">Loan Amount Needed:</label>
+    <input type="number" id="loanAmount" name="loanAmount" required />
+
+    <!-- Tenure Slider -->
+    <label for="tenure">Tenure (years):</label>
+    <input
+      type="range"
+      id="tenure"
+      name="tenure"
+      min="5"
+      max="30"
+      step="1"
+      [(ngModel)]="tenureValue"
+    />
+    <p class="slider-value">{{ tenureValue }} years</p>
+
+    <!-- Credit Score -->
+    <label for="creditScore">Credit Score:</label>
+    <input type="text" id="creditScore" name="creditScore" required />
+    <input type="file" id="cibilReport" name="cibilReport" accept=".pdf" />
+
+    <!-- Existing Loans -->
+    <label for="existingLoans">Existing Loans:</label>
+    <select id="existingLoans" name="existingLoans" required>
+      <option value="two-wheeler-loan">Two Wheeler Loan</option>
+      <option value="car-loan">Car Loan</option>
+      <option value="home-loan">Home Loan</option>
+      <option value="personal-loan">Personal Loan</option>
+      <option value="no-loan">No Loan</option>
+    </select>
+
+    <!-- Submit Button -->
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
+</div>
+<div class="footer">
+  <p>&copy; 2023 Shubham Mandal. All rights reserved.</p>
+</div>

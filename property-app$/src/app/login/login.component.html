@@ -1,0 +1,93 @@
+<div class="page-container">
+  <div class="login-container">
+    <h3 class="login-title">Login</h3>
+    <div class="error-message" *ngIf="errStatus">{{ errMessage }}</div>
+    <form
+      [formGroup]="loginDetails"
+      #ref="ngForm"
+      class="login-form"
+      (ngSubmit)="ref.valid && onFormSubmit()"
+    >
+      <div class="radio-group">
+        <input
+          type="radio"
+          value="user"
+          name="usertype"
+          class="form-check-input"
+          id="user"
+          formControlName="usertype"
+        />
+        <label for="user" class="form-check-label">User</label>
+        <input
+          type="radio"
+          value="admin"
+          name="usertype"
+          class="form-check-input"
+          id="admin"
+          formControlName="usertype"
+        />
+        <label for="admin" class="form-check-label">Admin</label>
+      </div>
+      <div class="validation-message">
+        <p
+          *ngIf="
+            (usertype?.invalid && (usertype?.dirty || usertype?.touched)) ||
+            ref.submitted
+          "
+        >
+          *Please enter the Usertype
+        </p>
+      </div>
+
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          formControlName="username"
+          placeholder="Username"
+        />
+        <label for="username">Username</label>
+        <div
+          class="validation-message"
+          *ngIf="
+            (username?.invalid && (username?.dirty || username?.touched)) ||
+            ref.submitted
+          "
+        >
+          <p *ngIf="username?.errors?.['required']">
+            *Please enter the Username
+          </p>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+        <label for="password">Password</label>
+        <div
+          class="validation-message"
+          *ngIf="
+            (password?.invalid && (password?.dirty || password?.touched)) ||
+            ref.submitted
+          "
+        >
+          <p *ngIf="password?.errors?.['required']">
+            *Please enter the Password
+          </p>
+        </div>
+      </div>
+
+      <button type="submit" class="login-button">Login</button>
+
+      <h6 class="signup-link">
+        New User <a routerLink="/signup">Sign Up</a> here
+      </h6>
+    </form>
+  </div>
+</div>

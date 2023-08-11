@@ -1,0 +1,107 @@
+<div class="signup-container">
+  <div class="signup-form-container">
+    <h2 class="text-center text-primary mb-4">Signup</h2>
+
+    <form #ref="ngForm" (ngSubmit)="onSignup(ref.value)" class="signup-form">
+      <div class="form-grid">
+        <!-- Form fields here -->
+        <div class="form-group">
+          <label for="firstname">Firstname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            placeholder=""
+            name="firstname"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastname">Lastname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastname"
+            placeholder=""
+            name="lastname"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="salary">Salary</label>
+          <input
+            type="text"
+            class="form-control"
+            id="salary"
+            placeholder=" "
+            name="salary"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder=" "
+            name="username"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder=" "
+            name="email"
+            ngModel
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder=" "
+            name="password"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            placeholder=" "
+            name="city"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <input
+            type="text"
+            class="form-control"
+            id="state"
+            placeholder=" "
+            name="state"
+            ngModel
+          />
+        </div>
+      </div>
+
+      <button class="btn btn-success btn-lg btn-block mt-4" type="submit">
+        Signup
+      </button>
+    </form>
+  </div>
+  <div *ngIf="userRegistered" class="success-message">
+    User Registered Successfully
+  </div>
+</div>
