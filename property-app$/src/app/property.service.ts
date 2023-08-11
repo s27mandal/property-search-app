@@ -70,12 +70,19 @@ export class PropertyService {
   }
 
   getCityNames(): Observable<string[]> {
-    const apiUrl = `${this.baseUrl}/city-names`;
-    return this.http.get<string[]>(apiUrl);
+    return this.http.get<string[]>(`${this.baseUrl}/city-names`);
   }
 
   getAreasForCity(cityName: string): Observable<string[]> {
-    const apiUrl = `${this.baseUrl}/areas-for-city/${cityName}`;
-    return this.http.get<string[]>(apiUrl);
+    return this.http.get<string[]>(
+      `${this.baseUrl}/areas-for-city/${cityName}`
+    );
+  }
+  getPropertiesByCityAndArea(
+    cityName: string,
+    area: string
+  ): Observable<any[]> {
+    const apiUrl = `${this.baseUrl}/${cityName}/${area}`;
+    return this.http.get<any[]>(apiUrl);
   }
 }

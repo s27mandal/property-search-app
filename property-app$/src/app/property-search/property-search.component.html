@@ -44,6 +44,7 @@
       />
       <span>{{ distance }} km</span>
     </div>
+
     <div *ngIf="searchType === 'city'">
       <label for="city">City:</label>
       <select
@@ -55,12 +56,7 @@
       </select>
       <label for="area">Area:</label>
       <select id="area" [(ngModel)]="selectedArea">
-        <option
-          *ngFor="let area of citiesWithAreas[selectedCity]"
-          [value]="area"
-        >
-          {{ area }}
-        </option>
+        <option *ngFor="let area of areas" [value]="area">{{ area }}</option>
       </select>
       <label for="distance">Distance (km):</label>
       <input
@@ -73,7 +69,7 @@
       />
       <span>{{ distance }} km</span>
     </div>
-    <button class="search-button" (click)="searchProperties()">Search</button>
+    <button class="search-button" (click)="performSearch()">Search</button>
   </div>
 </div>
 
