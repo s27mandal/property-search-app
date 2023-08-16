@@ -174,6 +174,16 @@ public class PropertyController {
         userSearchDetailsService.saveUserSearchDetailsWithDistance(searchDetails);
         return ResponseEntity.ok("Search details with distance saved successfully");
     }
+    @GetMapping("/search-details/{username}")
+    public ResponseEntity<UserSearchDetails> getUserSearchDetails(@PathVariable String username) {
+        UserSearchDetails searchDetails = userSearchDetailsService.getUserSearchDetailsByUsername(username);
+        if (searchDetails != null) {
+            return ResponseEntity.ok(searchDetails);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
 }
      
 

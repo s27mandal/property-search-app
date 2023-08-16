@@ -11,10 +11,7 @@ import jakarta.persistence.Table;
 @Table(name = "user_search_details")
 public class UserSearchDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+	@Id
     @Column(name = "username")
     private String username;
 
@@ -32,14 +29,7 @@ public class UserSearchDetails {
 
     @Column(name = "area")
     private String area;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 
 	public String getUsername() {
 		return username;

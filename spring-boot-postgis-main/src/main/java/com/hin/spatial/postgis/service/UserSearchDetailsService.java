@@ -26,6 +26,10 @@ public class UserSearchDetailsService {
 
         userSearchDetailsRepository.save(detailsWithDistance);
     }
+    
+    public UserSearchDetails getUserSearchDetailsByUsername(String username) {
+        return userSearchDetailsRepository.findById(username).orElse(null);
+    }
 
     
 }

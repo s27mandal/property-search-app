@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.hin.spatial.postgis.model.UserSearchDetails;
 
 @Repository
-public interface UserSearchDetailsRepository extends JpaRepository<UserSearchDetails, Long> {
+public interface UserSearchDetailsRepository extends JpaRepository<UserSearchDetails, String> {
 
 }
