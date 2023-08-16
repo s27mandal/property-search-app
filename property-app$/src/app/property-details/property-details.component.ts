@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PropertyService } from '../property.service';
 import { Router } from '@angular/router';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-property-details',
@@ -11,17 +12,22 @@ import { Router } from '@angular/router';
 export class PropertyDetailsComponent implements OnInit {
   propertyId: number = 0;
   propertyDetails: any;
+  username: string = '';
 
   constructor(
     private route: ActivatedRoute,
     private propertyService: PropertyService,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.propertyId = +params['id'];
       this.getPropertyDetails(this.propertyId);
+    });
+    this.sharedService.username$.subscribe((username) => {
+      this.username = username;
     });
   }
 

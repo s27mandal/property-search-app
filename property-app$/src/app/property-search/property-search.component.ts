@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import axios from 'axios';
 import { PropertyService } from '../property.service';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-property-search',
@@ -18,6 +19,7 @@ export class PropertySearchComponent implements OnInit {
   searchType: string = 'coordinates'; // Default search type
   cityName: string = '';
   savingCriteria: boolean = false;
+  username: string = '';
 
   cities: string[] = [];
   areas: string[] = [];
@@ -40,7 +42,8 @@ export class PropertySearchComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private propertyService: PropertyService
+    private propertyService: PropertyService,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit() {
@@ -52,6 +55,11 @@ export class PropertySearchComponent implements OnInit {
 
     // Fetch city names on component initialization
     this.fetchCityNames();
+
+    // Subscribe to the username$ observable to get the username
+    this.sharedService.username$.subscribe((username) => {
+      this.username = username;
+    });
   }
 
   toggleSearchType() {
@@ -193,6 +201,43 @@ export class PropertySearchComponent implements OnInit {
       this.getProperties(this.userLatitude, this.userLongitude, this.distance);
     } else if (this.searchType === 'city') {
       this.fetchPropertiesByCityAndArea(this.selectedCity, this.selectedArea);
+    }
+  }
+
+  saveSearchDetails() {
+    if (this.searchType === 'coordinates') {
+      const searchDetails = {
+        username: this.propertyService.currentUser.username,
+        latitude: this.userLatitude,
+        longitude: this.userLongitude,
+        distance: this.distance,
+      };
+
+      this.propertyService
+        .saveSearchDetailsWithDistance(searchDetails)
+        .subscribe(
+          () => {
+            alert('Search details with distance saved successfully');
+          },
+          (error) => {
+            console.error('Error saving search details with distance:', error);
+          }
+        );
+    } else if (this.searchType === 'city') {
+      const searchDetails = {
+        username: this.propertyService.currentUser.username,
+        cityName: this.selectedCity,
+        area: this.selectedArea,
+      };
+
+      this.propertyService.saveSearchDetails(searchDetails).subscribe(
+        () => {
+          alert('Search details saved successfully');
+        },
+        (error) => {
+          console.error('Error saving search details:', error);
+        }
+      );
     }
   }
 }

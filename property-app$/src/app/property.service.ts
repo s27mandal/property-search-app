@@ -85,4 +85,14 @@ export class PropertyService {
     const apiUrl = `${this.baseUrl}/${cityName}/${area}`;
     return this.http.get<any[]>(apiUrl);
   }
+
+  saveSearchDetails(searchDetails: any): Observable<any> {
+    const apiUrl = `${this.baseUrl}/save-user-search-details`;
+    return this.http.post(apiUrl, searchDetails);
+  }
+
+  saveSearchDetailsWithDistance(searchDetails: any): Observable<any> {
+    const apiUrl = `${this.baseUrl}/save-user-search-details-with-distance`;
+    return this.http.post(apiUrl, searchDetails);
+  }
 }

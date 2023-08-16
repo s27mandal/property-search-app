@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PropertyService } from '../property.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private propertyService: PropertyService,
-    private route: Router
+    private route: Router,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +47,7 @@ export class LoginComponent {
             if (userObj.username == 'softwareadmin') {
               this.route.navigateByUrl('/softwareadmin');
             }
+
             // else if(userObj.username=="hardwareadmin"){
             //   this.route.navigateByUrl('/hardwareadmin')
             // }
@@ -61,6 +64,7 @@ export class LoginComponent {
         console.log('user login error', err);
       },
     });
+    this.sharedService.setUsername(userObj.username);
   }
 
   get username() {

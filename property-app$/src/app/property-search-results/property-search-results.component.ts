@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PropertyService } from '../property.service';
 import { Router } from '@angular/router';
 import VanillaTilt from 'vanilla-tilt';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-property-search-results',
@@ -23,10 +24,13 @@ export class PropertySearchResultsComponent implements OnInit, AfterViewInit {
   @ViewChild('cardsContainer', { static: false })
   cardsContainerRef!: ElementRef;
 
+  username: string = '';
+
   constructor(
     private route: ActivatedRoute,
     private propertyService: PropertyService,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit() {
@@ -40,6 +44,10 @@ export class PropertySearchResultsComponent implements OnInit, AfterViewInit {
 
       // Update the search results in the property service
       this.propertyService.setSearchResults(this.properties);
+    });
+
+    this.sharedService.username$.subscribe((username) => {
+      this.username = username;
     });
   }
 

@@ -23,7 +23,7 @@
   align-items: center;
   background-color: #4695ea;
   color: #fff;
-  padding: 20px;
+  padding: 10px;
   font-family: "Poppins", sans-serif;
 }
 
@@ -45,6 +45,12 @@
 .left-corner {
   display: flex;
   align-items: center;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .right-corner {
