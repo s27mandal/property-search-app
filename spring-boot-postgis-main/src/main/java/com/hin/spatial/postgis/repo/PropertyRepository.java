@@ -20,6 +20,12 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
     @Query(value = "SELECT * FROM properties WHERE ST_DistanceSphere(property_location, :p) < :distanceM", nativeQuery = true)
     List<Property> findNearWithinDistance(Point p, double distanceM);
     
+    @Query("SELECT DISTINCT p.cityName FROM properties p")
+    List<String> findDistinctCityNames();
+
+    @Query("SELECT DISTINCT p.area FROM properties p WHERE p.cityName = :cityName")
+    List<String> findAreasForCity(@Param("cityName") String cityName);
+    
     
 
 //    @Query(value = "SELECT * FROM properties WHERE city_name = :city AND ST_DistanceSphere(property_location, :p) < :distanceM", nativeQuery = true)

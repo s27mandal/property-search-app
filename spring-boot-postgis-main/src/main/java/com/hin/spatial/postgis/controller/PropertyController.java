@@ -18,10 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hin.spatial.postgis.model.Property;
 import com.hin.spatial.postgis.model.PropertyDetails;
 import com.hin.spatial.postgis.model.UserRegistration;
+import com.hin.spatial.postgis.model.UserSearchDetails;
 import com.hin.spatial.postgis.repo.PropertyRepository;
 import com.hin.spatial.postgis.repo.UserRegistrationRepo;
 import com.hin.spatial.postgis.service.PropertyDetailsService;
 import com.hin.spatial.postgis.service.PropertyService;
+import com.hin.spatial.postgis.service.UserSearchDetailsService;
 
 
 @RestController
@@ -35,10 +37,14 @@ public class PropertyController {
     private PropertyDetailsService propertyDetailsService;
     
     @Autowired
+    private UserSearchDetailsService userSearchDetailsService;
+    
+    @Autowired
     private UserRegistrationRepo ur;
     
     @Autowired
     private PropertyRepository propertyRepository;  
+    
     
 
     @GetMapping("{name}")
@@ -145,9 +151,33 @@ public class PropertyController {
         }
     }
     
+    @GetMapping("/city-names")
+    public List<String> getCityNames() {
+        List<String> cityNames = propertyRepository.findDistinctCityNames();
+        return cityNames;
+    }
+
+    @GetMapping("/areas-for-city/{cityName}")
+    public List<String> getAreasForCity(@PathVariable String cityName) {
+        List<String> areas = propertyRepository.findAreasForCity(cityName);
+        return areas;
+    }
+    
+    @PostMapping("/save-user-search-details")
+    public ResponseEntity<String> saveUserSearchDetails(@RequestBody UserSearchDetails searchDetails) {
+        userSearchDetailsService.saveUserSearchDetails(searchDetails);
+        return ResponseEntity.ok("Search details saved successfully");
+    }
+
+    @PostMapping("/save-user-search-details-with-distance")
+    public ResponseEntity<String> saveUserSearchDetailsWithDistance(@RequestBody UserSearchDetails searchDetails) {
+        userSearchDetailsService.saveUserSearchDetailsWithDistance(searchDetails);
+        return ResponseEntity.ok("Search details with distance saved successfully");
+    }
+}
      
 
     
 
-}
+
 

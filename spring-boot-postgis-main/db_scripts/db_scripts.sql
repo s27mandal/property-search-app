@@ -16,6 +16,9 @@ CREATE TABLE properties (
 
 
 
+
+
+
 INSERT INTO properties (property_id, Area, property_location, price, property_name, property_type, CarpetArea, city_name)
 VALUES (1, 'Vadapalani', ST_SetSRID(ST_MakePoint(80.211533, 13.052570), 4326), 12000000, 'Property B', 'Commercial', 2000, 'Chennai');
 
@@ -173,19 +176,7 @@ VALUES (22, 'image1.jpg,image2.jpg,image3.jpg', 'This is a beautiful property wi
 
 
 
-cities: string[] = [
-    'Delhi',
-    'Chennai',
-    'Mumbai',
-    'Hyderabad',
-    'Pune',
-    'Bhopal',
-    'Gurgaon',
-    'Noida',
-    'Chandigarh',
-    'Kochi',
-    'Bengaluru',
-  ];
+
 
 
 
