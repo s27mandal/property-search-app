@@ -46,9 +46,38 @@ export class PropertySearchComponent implements OnInit {
     private sharedService: SharedService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Get user's current location
     this.getUserLocation();
+
+    // Fetch saved search details for the logged-in user
+    const currentUserString = localStorage.getItem('userObj');
+    if (currentUserString) {
+      const currentUser = JSON.parse(currentUserString);
+      this.propertyService
+        .getUserSearchDetailsByUsername(currentUser.username)
+        .subscribe(
+          (searchDetails) => {
+            if (searchDetails) {
+              if (searchDetails.city) {
+                this.selectedCity = searchDetails.city;
+                this.selectedArea = searchDetails.area;
+                this.searchType = 'city';
+              } else {
+                this.userLatitude = searchDetails.latitude;
+                this.userLongitude = searchDetails.longitude;
+                this.distance = searchDetails.distance;
+                this.searchType = 'coordinates';
+              }
+            }
+          },
+          (error) => {
+            console.error('Error fetching user search details:', error);
+          }
+        );
+    }
+
+    // Fetch the search results
     this.propertyService.getSearchResults().subscribe((results) => {
       this.properties = results;
     });
@@ -226,9 +255,12 @@ export class PropertySearchComponent implements OnInit {
     } else if (this.searchType === 'city') {
       const searchDetails = {
         username: this.propertyService.currentUser.username,
-        cityName: this.selectedCity,
+        latitude: this.userLatitude,
+        longitude: this.userLongitude,
+        city: this.selectedCity,
         area: this.selectedArea,
       };
+      console.log('Search details:', searchDetails);
 
       this.propertyService.saveSearchDetails(searchDetails).subscribe(
         () => {

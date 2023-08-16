@@ -42,18 +42,23 @@ export class LoginComponent {
           this.propertyService.currentUser = userObj;
 
           if (userObj.usertype === 'user') {
-            this.route.navigateByUrl('/property-search');
+            // Fetch saved search details for the logged-in user
+            this.propertyService
+              .getUserSearchDetailsByUsername(userObj.username)
+              .subscribe(
+                (searchDetails) => {
+                  this.propertyService.setSavedSearchDetails(searchDetails); // Store saved search details
+                  this.route.navigateByUrl('/property-search');
+                },
+                (error) => {
+                  console.log('Error fetching saved search details:', error);
+                  this.route.navigateByUrl('/property-search');
+                }
+              );
           } else if (userObj.usertype === 'admin') {
             if (userObj.username == 'softwareadmin') {
               this.route.navigateByUrl('/softwareadmin');
             }
-
-            // else if(userObj.username=="hardwareadmin"){
-            //   this.route.navigateByUrl('/hardwareadmin')
-            // }
-            // else{
-            //   this.route.navigateByUrl('/servicedesk')
-            // }
           }
         } else {
           this.errStatus = true;

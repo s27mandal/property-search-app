@@ -98,6 +98,7 @@
   backdrop-filter: blur(10px);
   position: relative;
   z-index: 1;
+  order: -2;
 }
 
 .feature-item,

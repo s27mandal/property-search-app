@@ -10,6 +10,9 @@ export class PropertyService {
   private searchResultsSubject: BehaviorSubject<any[]> = new BehaviorSubject<
     any[]
   >([]);
+  private savedSearchDetailsSubject: BehaviorSubject<any> =
+    new BehaviorSubject<any>(null);
+
   userLoginStatus: boolean = false;
   currentUser: any = null;
 
@@ -94,5 +97,17 @@ export class PropertyService {
   saveSearchDetailsWithDistance(searchDetails: any): Observable<any> {
     const apiUrl = `${this.baseUrl}/save-user-search-details-with-distance`;
     return this.http.post(apiUrl, searchDetails);
+  }
+  getUserSearchDetailsByUsername(username: string): Observable<any> {
+    const apiUrl = `${this.baseUrl}/search-details/${username}`;
+    return this.http.get<any>(apiUrl);
+  }
+
+  setSavedSearchDetails(searchDetails: any) {
+    this.savedSearchDetailsSubject.next(searchDetails);
+  }
+
+  getSavedSearchDetails(): Observable<any> {
+    return this.savedSearchDetailsSubject.asObservable();
   }
 }
